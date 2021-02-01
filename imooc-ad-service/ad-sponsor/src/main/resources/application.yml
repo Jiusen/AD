@@ -32,6 +32,6 @@ eureka:
       defaultZone: http://server1:8000/eureka/
 
 mybatis:
-  config-location: mybatis-config.xml
+  config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.imooc.ad.entity   #所有Entity别名类所在包
