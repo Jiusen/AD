@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.ad.dao.AdUnitDao">
+
+    <select id="findByPlanIdAndUnitName" resultType="com.imooc.ad.entity.AdUnit">
+        SELECT *
+        FROM ad_unit
+        WHERE plan_id= #{planId}
+        AND unit_name = #{unitName}
+    </select>
+
+    <select id="findAllByUnitStatus" resultType="com.imooc.ad.entity.AdUnit">
+        SELECT *
+        FROM ad_unit
+        WHERE unit_status = #{unitStatus}
+    </select>
+</mapper>
+    
