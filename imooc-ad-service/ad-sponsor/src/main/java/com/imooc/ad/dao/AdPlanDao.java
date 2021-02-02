@@ -1,6 +1,7 @@
 package com.imooc.ad.dao;
 
 import com.imooc.ad.entity.AdPlan;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -8,8 +9,15 @@ import java.util.List;
  * @author Jiusen Guo
  * @date 2021/2/1 20:55
  */
+@Repository
 public interface AdPlanDao {
 
+    /**
+     * 查询单条记录
+     * @param id 计划id
+     * @return
+     */
+    AdPlan findById(Long id);
     /**
      * 查询单条记录
      * @param id 计划id
@@ -40,4 +48,11 @@ public interface AdPlanDao {
      * @return
      */
     List<AdPlan> findAllByPlanStatus(Integer status);
+
+    /**
+     * 插入数据
+     * @param adPlan
+     * @return
+     */
+    Long save(AdPlan adPlan);
 }

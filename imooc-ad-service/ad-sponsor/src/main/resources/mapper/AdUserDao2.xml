@@ -9,7 +9,7 @@
         ad_user
         ad_user(username, token, user_status, create_time, update_time)
         VALUES
-        #{adUser.username}, #{adUser.token}, #{adUser.userStatus}, #{adUser.createTime}, #{adUser.updateTime}
+        (#{adUser.username}, #{adUser.token}, #{adUser.userStatus}, #{adUser.createTime}, #{adUser.updateTime})
     </insert>
 
     <select id="findByUserName" resultType="com.imooc.ad.entity.AdUser" >
@@ -18,5 +18,12 @@
         ad_user
         WHERE
         username = #{username}
+    </select>
+    <select id="findByIde" resultType="com.imooc.ad.entity.AdUser">
+        select *
+        FROM
+        ad_user
+        WHERE
+        id = #{id}
     </select>
 </mapper>

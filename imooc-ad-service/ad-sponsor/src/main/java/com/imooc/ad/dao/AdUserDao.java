@@ -17,6 +17,7 @@ public interface AdUserDao {
      * @return
      */
     AdUser findByUserName(String username);
+    AdUser findByIde(Long id);
 
     Long save(AdUser adUser);
 }
