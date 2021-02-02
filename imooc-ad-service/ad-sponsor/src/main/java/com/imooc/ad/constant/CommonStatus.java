@@ -1,4 +1,4 @@
-package com.imooc.ad.enums;
+package com.imooc.ad.constant;
 
 import lombok.Getter;
 

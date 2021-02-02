@@ -2,12 +2,13 @@ package com.imooc.ad.dao;
 
 import com.imooc.ad.entity.AdUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Jiusen Guo
  * @date 2021/2/1 20:49
  */
-@Mapper
+@Repository
 public interface AdUserDao {
 
     /**
@@ -16,4 +17,6 @@ public interface AdUserDao {
      * @return
      */
     AdUser findByUserName(String username);
+
+    Long save(AdUser adUser);
 }

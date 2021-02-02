@@ -3,6 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.imooc.ad.dao.AdUserDao">
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        INSERT
+        INTO
+        ad_user
+        ad_user(username, token, user_status, create_time, update_time)
+        VALUES
+        #{adUser.username}, #{adUser.token}, #{adUser.userStatus}, #{adUser.createTime}, #{adUser.updateTime}
+    </insert>
 
     <select id="findByUserName" resultType="com.imooc.ad.entity.AdUser" >
         select *
