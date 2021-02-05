@@ -1,6 +1,7 @@
 package com.imooc.ad.dao;
 
 import com.imooc.ad.entity.AdUnit;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -8,7 +9,15 @@ import java.util.List;
  * @author Jiusen Guo
  * @date 2021/2/1 21:04
  */
+@Repository
 public interface AdUnitDao {
+
+    /**
+     * 得到单条记录
+     * @param id    推广单元id
+     * @return
+     */
+    AdUnit findById(Long id);
 
     /**
      * 得到单条记录
@@ -24,4 +33,11 @@ public interface AdUnitDao {
      * @return
      */
     List<AdUnit> findAllByUnitStatus(Integer unitStatus);
+
+    /**
+     * 添加推广单元
+     * @param adUnit
+     * @return
+     */
+    Long save(AdUnit adUnit);
 }

@@ -3,6 +3,12 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.imooc.ad.dao.AdUnitDao">
+    <insert id="save">
+        INSERT
+        INTO
+        ad_unit(plan_id, unit_name, unit_status, position_type, budget, create_time, update_time)
+        VALUES(#{adUnit.planId}, #{adUnit.unitName}, #{adUnit.unitStatus}, #{adUnit.positionType}, #{adUnit.budget}, #{adUnit.createTime}, #{adUnit.updateTime})
+    </insert>
 
     <select id="findByPlanIdAndUnitName" resultType="com.imooc.ad.entity.AdUnit">
         SELECT *
@@ -15,6 +21,11 @@
         SELECT *
         FROM ad_unit
         WHERE unit_status = #{unitStatus}
+    </select>
+    <select id="findById" resultType="com.imooc.ad.entity.AdUnit">
+        SELECT *
+        FROM ad_unit
+        WHERE id= #{id}
     </select>
 </mapper>
     
