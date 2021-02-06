@@ -30,7 +30,7 @@ public class Creative {
     /**
      * 物料子类型(图片: bmp, jpg 等等)
      */
-    private Integer masterialType;
+    private Integer materialType;
     /**
      * 高度
      */

@@ -4,4 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.imooc.ad.dao.CreativeDao">
 
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        INSERT
+        INTO
+        ad_creative
+        ad_user(`name`, `type`, material_type, height, width, `size`, duration, audit_status, user_id, url, create_time, update_time)
+        VALUES
+        (
+        #{creative.name},
+        #{creative.type},
+        #{creative.material_type},
+        #{creative.height},
+        #{creative.width},
+        #{creative.size},
+        #{creative.duration},
+        #{creative.audit_status},
+        #{creative.user_id},
+        #{creative.url},
+        #{creative.createTime},
+        #{creative.updateTime}
+        )
+    </insert>
 </mapper>
