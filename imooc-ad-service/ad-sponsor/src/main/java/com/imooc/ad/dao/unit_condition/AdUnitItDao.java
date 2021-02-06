@@ -17,5 +17,5 @@ public interface AdUnitItDao {
      * @param unitIts
      * @return
      */
-    Long saveAll(List<AdUnitIt> unitIts);
+    List<Long> saveAll(List<AdUnitIt> unitIts);
 }

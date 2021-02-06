@@ -4,4 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.imooc.ad.dao.unit_condition.CreativeUnitDao">
 
+    <!-- mybatis插入一个list集合（批量插入数据）-->
+    <insert id="saveAll" useGeneratedKeys="true" keyProperty="id">
+        INSERT
+        INTO
+        creative_unit
+        (creative_id, unit_id)
+        VALUES
+        <foreach collection="list" index="index" item="unitKeyword" separator=",">
+            (
+            #{creativeUnits.creative_id},
+            #{creativeUnits.unit_id}
+            )
+        </foreach>
+    </insert>
 </mapper>

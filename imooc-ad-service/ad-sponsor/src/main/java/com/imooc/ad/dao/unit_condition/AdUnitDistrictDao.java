@@ -17,5 +17,5 @@ public interface AdUnitDistrictDao {
      * @param unitIts
      * @return
      */
-    Long saveAll(List<AdUnitDistrict> unitIts);
+    List<Long> saveAll(List<AdUnitDistrict> unitIts);
 }

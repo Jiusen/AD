@@ -3,14 +3,17 @@ package com.imooc.ad.service.impl;
 import com.imooc.ad.constant.Constants;
 import com.imooc.ad.dao.AdPlanDao;
 import com.imooc.ad.dao.AdUnitDao;
+import com.imooc.ad.dao.CreativeDao;
 import com.imooc.ad.dao.unit_condition.AdUnitDistrictDao;
 import com.imooc.ad.dao.unit_condition.AdUnitItDao;
 import com.imooc.ad.dao.unit_condition.AdUnitKeywordDao;
+import com.imooc.ad.dao.unit_condition.CreativeUnitDao;
 import com.imooc.ad.entity.AdPlan;
 import com.imooc.ad.entity.AdUnit;
 import com.imooc.ad.entity.unit_condition.AdUnitDistrict;
 import com.imooc.ad.entity.unit_condition.AdUnitIt;
 import com.imooc.ad.entity.unit_condition.AdUnitKeyword;
+import com.imooc.ad.entity.unit_condition.CreativeUnit;
 import com.imooc.ad.exception.AdException;
 import com.imooc.ad.service.IAdUnitService;
 import com.imooc.ad.vo.*;
@@ -45,6 +48,12 @@ public class IAdUnitServiceImpl implements IAdUnitService {
 
     @Autowired
     private AdUnitDistrictDao adUnitDistrictDao;
+
+    @Autowired
+    private CreativeDao creativeDao;
+
+    @Autowired
+    private CreativeUnitDao creativeUnitDao;
 
     @Override
     public AdUnitResponse createUnit(AdUnitRequest request) throws AdException {
@@ -163,10 +172,44 @@ public class IAdUnitServiceImpl implements IAdUnitService {
         return new AdUnitDistrictResponse(ids);
     }
 
+    @Override
+    public CreativeUnitResponse createCreativeUnit(CreativeUnitRequest request) throws AdException {
+
+        //java8 语法 ：得到所有记录的 单元id
+        List<Long> unitIds = request.getUnitItems().stream().map(CreativeUnitRequest.CreativeUnitItem::getUnitId).collect(Collectors.toList());
+
+        //关联的创意id
+        List<Long> creativeIds = request.getUnitItems().stream().map(CreativeUnitRequest.CreativeUnitItem::getCreativeId).collect(Collectors.toList());
+
+        if (!(isRelatedUnitExist(unitIds) && isRelatedUnitExist(creativeIds))) {
+            throw new AdException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
+        }
+
+        List<CreativeUnit> creativeUnits = new ArrayList<>();
+        request.getUnitItems().forEach(i -> creativeUnits.add(
+                new CreativeUnit(i.getCreativeId(), i.getUnitId())
+        ));
+
+        //批量插入后对应的 ids
+        List<Long> ids = creativeUnitDao.saveAll(creativeUnits);
+
+        return new CreativeUnitResponse(ids);
+    }
+
+    //单元 ids是否存在
     private boolean isRelatedUnitExist(List<Long> unitIds) {
         if (CollectionUtils.isEmpty(unitIds)) {
             return false;
         }
         return adUnitDao.findAllById(unitIds).size() == new HashSet<>(unitIds).size();
+    }
+
+    //创意 ids是否存在
+    private boolean isRelatedCreativeExist(List<Long> creativeIds) {
+        if (CollectionUtils.isEmpty(creativeIds)) {
+            return false;
+        }
+        //是否有重复的 ids
+        return creativeDao.findAllById(creativeIds).size() == new HashSet<>(creativeIds).size();
     }
 }

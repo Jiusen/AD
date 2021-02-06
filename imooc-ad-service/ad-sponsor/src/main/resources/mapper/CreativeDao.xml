@@ -26,4 +26,14 @@
         #{creative.updateTime}
         )
     </insert>
+
+    <select id="findAllById" resultType="com.imooc.ad.entity.Creative">
+        SELECT *
+        FROM ad_creative
+        WHERE
+        id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 </mapper>

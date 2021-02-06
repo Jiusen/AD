@@ -1,6 +1,9 @@
 package com.imooc.ad.dao.unit_condition;
 
+import com.imooc.ad.entity.unit_condition.CreativeUnit;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author Jiusen Guo
@@ -8,4 +11,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CreativeUnitDao {
+
+    List<Long> saveAll(List<CreativeUnit> creativeUnits);
 }

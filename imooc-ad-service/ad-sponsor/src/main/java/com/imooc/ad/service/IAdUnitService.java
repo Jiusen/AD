@@ -41,5 +41,13 @@ public interface IAdUnitService {
      */
     AdUnitDistrictResponse createUnitDistrict(AdUnitDistrictRequest request) throws AdException;
 
+    /**
+     * 添加 创意-单元
+     * @param request
+     * @return
+     * @throws AdException
+     */
+    CreativeUnitResponse createCreativeUnit(CreativeUnitRequest request) throws AdException;
+
 
 }

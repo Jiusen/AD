@@ -17,5 +17,5 @@ public interface AdUnitKeywordDao {
      * @param unitKeywords
      * @return
      */
-    Long saveAll(List<AdUnitKeyword> unitKeywords);
+    List<Long> saveAll(List<AdUnitKeyword> unitKeywords);
 }
