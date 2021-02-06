@@ -27,5 +27,14 @@
         FROM ad_unit
         WHERE id= #{id}
     </select>
+    <select id="findAllById" parameterType="java.util.List" resultType="com.imooc.ad.entity.AdUnit">
+        SELECT *
+        FROM ad_unit
+        WHERE id
+        IN 
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 </mapper>
     

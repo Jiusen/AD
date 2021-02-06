@@ -19,6 +19,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @MapperScan("com.imooc.ad.dao")
 public class SponsorApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringApplication.class, args);
+        SpringApplication.run(SponsorApplication.class, args);
     }
 }

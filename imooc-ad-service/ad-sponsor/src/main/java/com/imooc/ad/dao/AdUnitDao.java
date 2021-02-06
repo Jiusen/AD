@@ -35,6 +35,13 @@ public interface AdUnitDao {
     List<AdUnit> findAllByUnitStatus(Integer unitStatus);
 
     /**
+     * 得到多条记录
+     * @param ids    推广单元id
+     * @return
+     */
+    List<AdUnit> findAllById(List<Long> ids);
+
+    /**
      * 添加推广单元
      * @param adUnit
      * @return

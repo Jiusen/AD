@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.ad.dao.unit_condition.AdUnitKeywordDao">
+
+    <!-- mybatis插入一个list集合（批量插入数据）-->
+    <insert id="saveAll" useGeneratedKeys="true" keyProperty="id">
+        INSERT
+        INTO
+        ad_unit_keyword
+        (unit_id, keyword)
+        VALUES
+        <foreach collection="list" index="index" item="unitKeyword" separator=",">
+            (
+            #{unitKeywords.unitId},
+            #{unitKeyword.keyword}
+            )
+        </foreach>
+    </insert>
+</mapper>

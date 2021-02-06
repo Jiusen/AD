@@ -1,8 +1,7 @@
 package com.imooc.ad.service;
 
 import com.imooc.ad.exception.AdException;
-import com.imooc.ad.vo.AdUnitRequest;
-import com.imooc.ad.vo.AdUnitResponse;
+import com.imooc.ad.vo.*;
 
 /**
  * @author Jiusen Guo
@@ -17,5 +16,30 @@ public interface IAdUnitService {
      * @throws AdException
      */
     AdUnitResponse createUnit(AdUnitRequest request) throws AdException;
+
+    /**
+     * 添加关键词类-单元
+     * @param request
+     * @return
+     * @throws AdException
+     */
+    AdUnitKeywordResponse createUnitKeyword(AdUnitKeywordRequest request) throws AdException;
+
+    /**
+     * 添加兴趣类-单元
+     * @param request
+     * @return
+     * @throws AdException
+     */
+    AdUnitItResponse createUnitIt(AdUnitItRequest request) throws AdException;
+
+    /**
+     * 添加地域类-单元
+     * @param request
+     * @return
+     * @throws AdException
+     */
+    AdUnitDistrictResponse createUnitDistrict(AdUnitDistrictRequest request) throws AdException;
+
 
 }

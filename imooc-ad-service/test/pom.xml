@@ -9,14 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>imooc-ad-service</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>ad-common</module>
-        <module>ad-sponsor</module>
-        <module>test</module>
-    </modules>
-    <packaging>pom</packaging>
+    <artifactId>test</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
