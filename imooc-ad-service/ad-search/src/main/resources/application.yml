@@ -33,7 +33,8 @@ eureka:
 
 feign:
   hystrix:
-    enabled: true
+    enabled: true #如果处理自身的容错就开启。开启方式与生产端不一样。
+
 
 #监控全部信息
 management:
