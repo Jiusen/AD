@@ -11,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author Jiusen Guo
  * @date 2021/2/7 20:34
+ * 这里使用正向索引
  */
 @Slf4j
 @Component
