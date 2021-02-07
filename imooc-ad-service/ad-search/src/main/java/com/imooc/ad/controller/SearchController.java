@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -24,12 +25,12 @@ public class SearchController {
 
     private final RestTemplate restTemplate;
 
-    private final SponsorClient sponsorClient;
+    @Resource
+    private SponsorClient sponsorClient;
 
     @Autowired
-    public SearchController(RestTemplate restTemplate, SponsorClient sponsorClient) {
+    public SearchController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.sponsorClient = sponsorClient;
     }
 
 
