@@ -1,4 +1,4 @@
-package com.imooc.ad.index.AdUnit;
+package com.imooc.ad.index.adunit;
 
 import com.imooc.ad.index.IndexAware;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.imooc.ad.Creative;
+package com.imooc.ad.index.creative;
 
 import com.imooc.ad.index.IndexAware;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class CreativeIndex implements IndexAware<Long, CreativeObject> {
 
-    //正向索引
     private static Map<Long, CreativeObject> objectMap;
 
     static {
