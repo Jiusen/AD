@@ -8,7 +8,7 @@ package com.imooc.ad.dump;
 public class DConstant {
 
     // 数据存储的位置
-    public static final String DATA_ROOT_DIR = "F:\\项目\\个人项目\\广告系统\\data";
+    public static final String DATA_ROOT_DIR = "F:/项目/个人项目/广告系统/data/";
 
     // 各个表数据的存储文件名
     public static final String AD_PLAN = "ad_plan.data";

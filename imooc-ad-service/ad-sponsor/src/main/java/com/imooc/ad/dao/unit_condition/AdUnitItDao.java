@@ -18,4 +18,10 @@ public interface AdUnitItDao {
      * @return
      */
     List<Long> saveAll(List<AdUnitIt> unitIts);
+
+    /**
+     * 得到所有记录
+     * @return
+     */
+    List<AdUnitIt> findAll();
 }

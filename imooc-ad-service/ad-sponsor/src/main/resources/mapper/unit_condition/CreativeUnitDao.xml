@@ -18,4 +18,9 @@
             )
         </foreach>
     </insert>
+    <select id="findAll" resultType="com.imooc.ad.entity.unit_condition.CreativeUnit">
+        SELECT *
+        FROM
+        creative_unit
+    </select>
 </mapper>

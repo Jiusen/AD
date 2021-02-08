@@ -25,4 +25,10 @@ public interface CreativeDao {
      * @return
      */
     List<Creative> findAllById(List<Long> creativeIds);
+
+    /**
+     * 得到所有记录
+     * @return
+     */
+    List<Creative> findAll();
 }

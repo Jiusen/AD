@@ -18,4 +18,10 @@ public interface AdUnitKeywordDao {
      * @return
      */
     List<Long> saveAll(List<AdUnitKeyword> unitKeywords);
+
+    /**
+     * 得到所有记录
+     * @return
+     */
+    List<AdUnitKeyword> findAll();
 }

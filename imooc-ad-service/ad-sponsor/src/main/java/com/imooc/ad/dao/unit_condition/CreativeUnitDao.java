@@ -12,5 +12,16 @@ import java.util.List;
 @Repository
 public interface CreativeUnitDao {
 
+    /**
+     * 批量保存
+     * @param creativeUnits
+     * @return
+     */
     List<Long> saveAll(List<CreativeUnit> creativeUnits);
+
+    /**
+     * 得到所有数据记录
+     * @return
+     */
+    List<CreativeUnit> findAll();
 }
