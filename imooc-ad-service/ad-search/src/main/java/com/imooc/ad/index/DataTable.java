@@ -12,12 +12,14 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author Jiusen Guo
  * @date 2021/2/7 23:12
+ * 数据表
  */
 @Component
 public class DataTable implements ApplicationContextAware, PriorityOrdered {
 
     private static ApplicationContext applicationContext;
 
+    //存放class(类型) - Object(对应的类）
     public static final Map<Class, Object> dataTableMap = new ConcurrentHashMap<>();
 
     @Override

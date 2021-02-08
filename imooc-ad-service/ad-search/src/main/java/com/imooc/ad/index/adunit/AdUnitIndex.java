@@ -17,10 +17,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class AdUnitIndex implements IndexAware<Long, AdUnitObject> {
 
+    //存储数据表中所有的记录
     private static Map<Long, AdUnitObject> objectMap;
 
     static {
-        objectMap = new ConcurrentHashMap<>();
+        objectMap = new ConcurrentHashMap<>(); //支持并发
     }
 
     @Override
