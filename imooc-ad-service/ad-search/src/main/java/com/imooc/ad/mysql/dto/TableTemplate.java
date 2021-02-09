@@ -12,15 +12,26 @@ import java.util.Map;
 /**
  * @author Jiusen Guo
  * @date 2021/2/9 19:17
+ * 记录表 字段的操作类型
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TableTemplate {
 
+    /**
+     * 表名
+     */
     private String tableName;
+
+    /**
+     * 操作层级
+     */
     private String level;
 
+    /**
+     * 操作类型 对应的列
+     */
     private Map<OpType, List<String>> opTypeFieldSetMap = new HashMap<>();
 
     /**

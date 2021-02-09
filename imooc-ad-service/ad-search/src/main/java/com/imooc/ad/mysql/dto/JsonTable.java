@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * @author Jiusen Guo
  * @date 2021/2/9 19:12
+ * 数据库中的表 以及 表中对应修改的列
  */
 @Data
 @AllArgsConstructor
