@@ -1,11 +1,29 @@
 package com.imooc.ad.mysql.constant;
 
+import com.github.shyiko.mysql.binlog.event.EventType;
+
 /**
- * @author Jiusen Guo
- * @date 2021/2/8 19:33
+ * Created by Qinyi.
  */
 public enum OpType {
 
-    ADD, UPDATE, DELETE, OTHER;
+    ADD,
+    UPDATE,
+    DELETE,
+    OTHER;
 
+    public static OpType to(EventType eventType) {
+
+        switch (eventType) {
+            case EXT_WRITE_ROWS:
+                return ADD;
+            case EXT_UPDATE_ROWS:
+                return UPDATE;
+            case EXT_DELETE_ROWS:
+                return DELETE;
+
+            default:
+                return OTHER;
+        }
+    }
 }
