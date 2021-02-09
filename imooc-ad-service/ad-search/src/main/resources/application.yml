@@ -43,6 +43,15 @@ management:
       exposure:
         include: "*"
 
+adconf:
+  mysql:
+    host: 39.97.233.41
+    port: 3306
+    username: root
+    password: Gjs935219!
+    binlogName: ""
+    position: -1
+
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml
