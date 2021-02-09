@@ -83,10 +83,9 @@ public class TemplateHolder {
                     OpType.DELETE
             );
 
-            jdbcTemplate.query(SQL_SCHEMA, new Object[]{
-                    template.getDatabase(), table.getTableName()
-            }, (rs, i) -> {
-
+            jdbcTemplate.query(SQL_SCHEMA,
+                    new Object[]{template.getDatabase(), table.getTableName()},
+                    (rs, i) -> {
                 int pos = rs.getInt("ORDINAL_POSITION");
                 String colName = rs.getString("COLUMN_NAME");
 
