@@ -17,11 +17,23 @@ import java.util.Map;
 @AllArgsConstructor
 public class MySqlRowData {
 
+    /**
+     * 表名
+     */
     private String tableName;
 
+    /**
+     * 层级
+     */
     private String level;
 
+    /**
+     * 操作类型
+     */
     private OpType opType;
 
+    /**
+     * 每一条记录的值
+     */
     private List<Map<String, String>> fieldValueMap = new ArrayList<>();
 }

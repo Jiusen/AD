@@ -3,7 +3,7 @@ package com.imooc.ad.mysql.constant;
 import com.github.shyiko.mysql.binlog.event.EventType;
 
 /**
- * Created by Qinyi.
+ * 操作类型（增删改查）
  */
 public enum OpType {
 
