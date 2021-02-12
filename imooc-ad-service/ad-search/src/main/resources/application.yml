@@ -51,6 +51,8 @@ adconf:
     password: Gjs935219!
     binlogName: ""
     position: -1
+  kafka:
+    topic: ad-search-mysql-data
 
 mybatis:
   config-location: classpath:mybatis-config.xml
