@@ -80,6 +80,12 @@ public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
         log.info("UnitDistrictIndex, after delete: {}", unitDistrictMap);
     }
 
+    /**
+     * 判断是否存在这些地域的广告单元
+     * @param adUnitId
+     * @param districts
+     * @return
+     */
     public boolean match(Long adUnitId, List<DistrictFeature.ProvinceAndCity> districts) {
 
         if (unitDistrictMap.containsKey(adUnitId) &&
@@ -96,4 +102,5 @@ public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
 
         return false;
     }
+
 }
