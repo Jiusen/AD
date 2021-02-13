@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.imooc.ad.client.SponsorClient;
 import com.imooc.ad.client.vo.AdPlan;
 import com.imooc.ad.client.vo.AdPlanGetRequest;
+import com.imooc.ad.search.ISearch;
+import com.imooc.ad.search.vo.SearchRequest;
+import com.imooc.ad.search.vo.SearchResponse;
 import com.imooc.ad.vo.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +31,21 @@ public class SearchController {
     @Resource
     private SponsorClient sponsorClient;
 
+    private final ISearch search;
+
     @Autowired
-    public SearchController(RestTemplate restTemplate) {
+    public SearchController(RestTemplate restTemplate, ISearch search) {
         this.restTemplate = restTemplate;
+        this.search = search;
     }
 
+    @PostMapping("/fetchAds")
+    public SearchResponse fetchAds(@RequestBody SearchRequest request) {
+
+        log.info("ad-search: fetchAds -> {}",
+                JSON.toJSONString(request));
+        return search.fetchAds(request);
+    }
 
     @PostMapping("/getAdPlans")
     public CommonResponse<List<AdPlan>> getAdPlans(@RequestBody AdPlanGetRequest request) {
