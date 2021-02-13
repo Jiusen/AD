@@ -39,7 +39,7 @@ public class SearchRequest {
 
         private String requestId;
 
-        private List<AdSlot> adSlots;
+        private List<AdSlot> adSlots;  //广告位
         private App app;
         private Geo geo;
         private Device device;

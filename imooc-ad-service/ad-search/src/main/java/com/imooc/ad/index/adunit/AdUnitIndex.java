@@ -2,10 +2,11 @@ package com.imooc.ad.index.adunit;
 
 import com.imooc.ad.index.IndexAware;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
 
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -24,6 +25,49 @@ public class AdUnitIndex implements IndexAware<Long, AdUnitObject> {
         objectMap = new ConcurrentHashMap<>(); //支持并发
     }
 
+    /**
+     * 匹配
+     * @param positionType  位置类型
+     * @return
+     */
+    public Set<Long> match(Integer positionType) {
+
+        Set<Long> adUnitIds = new HashSet<>();
+
+        objectMap.forEach((k, v) -> {
+            if (AdUnitObject.isAdSlotTypeOK(positionType,
+                    v.getPositionType())) {
+                adUnitIds.add(k);
+            }
+        });
+
+        return adUnitIds;
+    }
+
+    /**
+     * 得到对应的存储数据
+     * @param adUnitIds
+     * @return
+     */
+    public List<AdUnitObject> fetch(Collection<Long> adUnitIds) {
+
+        if (CollectionUtils.isEmpty(adUnitIds)) {
+            return Collections.emptyList();
+        }
+
+        List<AdUnitObject> result = new ArrayList<>();
+
+        adUnitIds.forEach(u -> {
+            AdUnitObject object = get(u);
+            if (object == null) {
+                log.error("AdUnitObject not found: {}", u);
+                return;
+            }
+            result.add(object);
+        });
+
+        return result;
+    }
     @Override
     public AdUnitObject get(Long key) {
         return objectMap.get(key);
