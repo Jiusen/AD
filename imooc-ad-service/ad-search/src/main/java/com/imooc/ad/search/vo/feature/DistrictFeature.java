@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * Created by Qinyi.
+ * 地理位置匹配信息.
  */
 @Data
 @NoArgsConstructor
