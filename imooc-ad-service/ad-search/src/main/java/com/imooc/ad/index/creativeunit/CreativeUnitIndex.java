@@ -90,6 +90,11 @@ public class CreativeUnitIndex implements
         log.info("after delete: {}", objectMap);
     }
 
+    /**
+     * 根据 unitObjects（推广单元对象） 得到所有的创意 ids
+     * @param unitObjects
+     * @return
+     */
     public List<Long> selectAds(List<AdUnitObject> unitObjects) {
 
         if (CollectionUtils.isEmpty(unitObjects)) {
